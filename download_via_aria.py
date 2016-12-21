@@ -56,7 +56,10 @@ def get_options():
 
 def main():
     """The main method."""
-    sys.stdout.write('Received args: %s\n' % (':-:'.join(sys.argv)))
+    # sys.stdout.write('Received args: %s\n' % (':-:'.join(sys.argv)))
+    if len(sys.argv) < 2:
+        sys.stderr.write('No download links provided!')
+        return -1
     if os.path.isfile(os.path.join(os.environ['HOME'], '.aria2/aria2.conf')):
         conf = get_options()
     else:
